@@ -1,0 +1,50 @@
+body {
+    background-color: #d5d5d5 !important;
+}
+
+.video-player {
+    position: relative;
+}
+
+.btn-play {
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    font-size: 50px;
+    cursor: pointer;
+    color: #68236D;
+}
+
+.controls-wrapper {
+    align-items: center;
+    position: relative !important;
+    margin-top: -10% !important;
+    padding-right: 3% !important;
+}
+
+.video-control-section {
+    padding-left: 5% !important;
+}
+
+.btn-play-pause-video {
+    font-size: 40px;
+    cursor: pointer;
+    color: #52338e;
+}
+
+.video-progress-bar {
+    vertical-align: text-top;
+    width: 84%;
+    margin-left: 10px;
+}
+
+.btn-previos-next {
+    width: 100%;
+    height: 40px;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    background-color: #52338e !important;
+    border: 1px solid #52338e !important;
+    border-radius: 50px !important;
+}

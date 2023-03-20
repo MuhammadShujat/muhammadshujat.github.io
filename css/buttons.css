@@ -1,0 +1,32 @@
+.text-btn-main {
+  position: absolute;
+  right: 46px;
+  top: 16%;
+  left: initial;
+  z-index: 100;
+  width: initial;
+  display: flex;
+  flex-direction: column;
+}
+.text-btn {
+  width: 150px;
+  background: #c7d437;
+  color: #68236D;
+  padding: 0px 15px;
+  margin: 5px 0;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  min-height: 57px;
+}
+
+.visited {
+  background: #68236D;
+  color: #ffffff;
+}
+
+.text-btn:hover,.text-btn:focus {
+  background: #68236D;
+  color: #ffffff;
+}
