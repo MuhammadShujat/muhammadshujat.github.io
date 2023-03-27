@@ -23,3 +23,67 @@
   max-width: 95%;
   left: 5px;
 }
+/* Added by AJ */
+.modal-open .modal {
+  overflow-x: hidden;
+  /* overflow-y: auto; */
+  overflow-y: clip;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-wrapper .modal-header {
+    padding: 0px 15px 5px 15px;
+  }
+  .modal-wrapper .modal-title {
+  line-height: 1.5;
+  font-size: 12px;
+  padding: 4px 0 0 0;
+}
+.list-simple li {
+  padding: 0 0 6px 16px;
+  line-height: 16px;
+  font-size: 12px;
+}
+.modal-wrapper .modal-body {
+  padding: 10px 10px;
+  max-height: 125px;
+  overflow-y: auto;
+}
+.modal-wrapper-main {
+  height: 314px;
+}
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-wrapper-main {
+    top: 4%;
+    left: 27%;
+    width: 47.5%;
+    height: 265px
+  }
+  .modal-wrapper .modal-title {
+    font-size: 10px;
+    padding: 7px 0 0 0;
+  }
+  .list-simple li {
+    line-height: 14px;
+    font-size: 11px;
+  }
+  }
+  
+@media only screen and (max-width: 440px) {
+.modal-wrapper-main {
+  top: 4%;
+  left: 5%;
+  width: 68.5%;
+  height: 216px;
+}
+.modal-wrapper .modal-title {
+  font-size: 10px;
+  padding: 7px 0 0 0;
+}
+.list-simple li {
+  line-height: 14px;
+  font-size: 11px;
+}
+}

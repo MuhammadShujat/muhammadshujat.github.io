@@ -16,51 +16,46 @@
     <link href="./css/buttons.css" rel="stylesheet">
     <link href="./css/player.css" rel="stylesheet">
     <link href="./css/modal.css" rel="stylesheet">
+    <link href="./css/pdfs.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="ontainer mt-1 mb-1 responsive-style">
-        <div class="row content-data">
+        <div class="ro content-data">
+
+            <!-- Audio Container  -->
+            <div id="audio-container" style="display: none;">
+            </div>
+            <!-- Audio Container  -->
+
+            <!-- Storage Modal  -->
+            <div id="storageModalContainer">
+            </div>
+            <!-- Storage Modal  -->
 
             <button id="menu-btn" type="button" class="menu-btn" onclick="toggleMenu()">Menu</button>
             <div class="menu-wrapper transition" id="menuToggle">
                 <ul class="video-listing scrollbar-style">
+                    
                     <li>
-                        <a href="#" onclick="playSlide1()">Video 1</a>
+                        <a href="#" onclick="playSlide1()">Introduction</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#" onclick="playSlide5()">Section 1 - Recognize</a>
                     </li>
                     <li>
-                        <a href="#">Video 2</a>
+                        <a href="#" onclick="playSlide37()">Section 2 - Respond</a>
                     </li>
                     <li>
-                        <a href="#">Video 3</a>
+                        <a href="#" onclick="playSlide44()">Section 3 - Refer</a>
                     </li>
+
                     <li>
-                        <a href="#">Video 4</a>
+                        <a href="#" onclick="playSlide50()">Online Resources</a>
                     </li>
-                    <li>
-                        <a href="#">Video 5</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 6</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 3</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 4</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 5</a>
-                    </li>
-                    <li>
-                        <a href="#">Video 6</a>
-                    </li>
+
+
                 </ul>
             </div>
 
@@ -137,8 +132,8 @@
         $('#myModal').on('shown.bs.modal', function () {
             $('#myInput').trigger('focus')
         })
+        const menu = document.getElementById('menuToggle');
         function toggleMenu() {
-            const menu = document.getElementById('menuToggle');
             menu.classList.toggle('menu-toggle');
         }
         $(document).ready(function () {
@@ -152,6 +147,76 @@
                 $('body').css("padding-right", "");
             });
         });
+
+        document.onkeydown = function (evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                menu.classList.remove('menu-toggle');
+            }
+        };
+        $(document.body).click(function () {
+            menu.classList.remove('menu-toggle');
+        });
+        $("#menu-btn").click(function (e) {
+            e.stopPropagation();
+        });
+    </script>
+
+    <script>
+        window.onload = (event) => {
+            let slide = localStorage.getItem("slide");
+            let storageModalContainer = document.getElementById('storageModalContainer');
+            let audioContainer = document.getElementById('audio-container');
+            let menuBtn = document.getElementById('menu-btn');
+
+            if (slide != null) {
+                storageModalContainer.innerHTML = `
+                <div class="modal fade" id="storageModal" tabindex="-1" role="dialog"
+                    aria-labelledby="storageModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="storageModalLongTitle">Resume</h5>
+                            </div>
+                            <div class="modal-body">
+                                <b>Would you like to resume where you left off?</b>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="closeModal(); ${slide}; showMenu(); playAudio();">Yes</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeModal(); playSlide1();" >No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `
+                $(document).ready(function () {
+                    $("#storageModal").modal('show');
+                });
+            }
+        };
+
+        function closeModal() {
+            $(document).ready(function () {
+                $("#storageModal").modal('hide');
+            });
+        }
+
+        function showMenu() {
+            menuBtn.style.display = 'block'
+        }
+
+        function playAudio() {
+            audioContainer.innerHTML = `
+                <audio loop autoplay>
+                    <source src="./assets/audio/background_track.mp3" type="audio/mpeg">
+                </audio>
+            `
+        }
+
+
+
+
+
     </script>
 
     <script src="./js/app.js"></script>

@@ -1,10 +1,10 @@
 var startingPlayBtn = document.getElementById('starting-play-button');
 var menuBtn = document.getElementById('menu-btn');
 var videoContainer = document.getElementById('video-container');
+var audioContainer = document.getElementById('audio-container');
 
 
 function playSlide1() {
-    // console.log('Slide 1')
     videoContainer.innerHTML = `
    
     
@@ -60,12 +60,17 @@ function playSlide1() {
                 </div>
             </div>
     `
+    audioContainer.innerHTML = `
+                <audio loop autoplay>
+                    <source src="./assets/audio/background_track.mp3" type="audio/mpeg">
+                </audio>
+    `
     startingPlayBtn.style.display = 'none'
     menuBtn.style.display = 'block'
+    localStorage.clear();
 }
 
 function playSlide2() {
-    // console.log('Slide 2')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -115,17 +120,17 @@ function playSlide2() {
                             </div>
 
                             <button class="next-prev-btns prev no-tooltip" onclick="playSlide1();">Prev</button>
-                            <button class="next-prev-btns next no-tooltip" onclick="playSlide3();">Next</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide3();">Next</button> -->
 
                         </div>
                     </div>
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide2()");
 }
 
 function playSlide3() {
-    // console.log('Slide 3')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -178,10 +183,10 @@ function playSlide3() {
             </div>
 
     `
+    localStorage.setItem("slide", "playSlide3()");
 }
 
 function playSlide4() {
-    // console.log('Slide 4')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -233,10 +238,10 @@ function playSlide4() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide4()");
 }
 
 function playSlide5() {
-    // console.log('Slide 5')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -288,10 +293,10 @@ function playSlide5() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide5()");
 }
 
 function playSlide6() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -343,10 +348,10 @@ function playSlide6() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide6()");
 }
 
 function playSlide7() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -398,10 +403,10 @@ function playSlide7() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide7()");
 }
 
 function playSlide8() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -453,16 +458,187 @@ function playSlide8() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide8()");
 }
 
 function playSlide9() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
                     onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
                     <source src="./assets/videos/s9.mp4" type="video/mp4"></source>
                 </video>
+                <div class="start-button-main why-focus-btn">
+                <div class="start-button">
+                <button id="btnNext" class="start-btn next no-tooltip" onclick="playSlide9a();">Why focus on women?</button>
+                </div>
+                </div>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide8();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide10();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+    localStorage.setItem("slide", "playSlide9()");
+}
+
+function playSlide9a() {
+    videoContainer.innerHTML = `
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s9a.mp4" type="video/mp4"></source>
+                </video>
+               
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide8();">Prev</button>
+                            <button class="next-prev-btns next no-tooltip" onclick="playSlide9b();">Next</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide9b() {
+    videoContainer.innerHTML = `
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s9b.mp4" type="video/mp4"></source>
+                </video>
+               
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide8();">Prev</button>
+                            <button class="next-prev-btns next no-tooltip" onclick="playSlide9c();">Next</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide9c() {
+    videoContainer.innerHTML = `
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s9c.mp4" type="video/mp4"></source>
+                </video>
+               
             <div class="video-controls-main">
                 <div class="video-controls " id="video-controls">
                     <div class="bottom-controls">
@@ -511,7 +687,6 @@ function playSlide9() {
 }
 
 function playSlide10() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -563,10 +738,10 @@ function playSlide10() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide10()");
 }
 
 function playSlide11() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -618,10 +793,10 @@ function playSlide11() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide11()");
 }
 
 function playSlide12() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -673,10 +848,10 @@ function playSlide12() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide12()");
 }
 
 function playSlide13() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -728,10 +903,10 @@ function playSlide13() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide13()");
 }
 
 function playSlide14() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
 
 
@@ -795,10 +970,10 @@ function playSlide14() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide14()");
 }
 
 function playSlide14a() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
 
 
@@ -897,7 +1072,6 @@ function playSlide14a() {
 }
 
 function playSlide14b() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
 
 
@@ -999,7 +1173,6 @@ function playSlide14b() {
 }
 
 function playSlide14c() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
 
 
@@ -1096,7 +1269,6 @@ function playSlide14c() {
 }
 
 function playSlide15() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1148,10 +1320,10 @@ function playSlide15() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide15()");
 }
 
 function playSlide16() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1203,10 +1375,10 @@ function playSlide16() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide16()");
 }
 
 function playSlide17() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1258,10 +1430,10 @@ function playSlide17() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide17()");
 }
 
 function playSlide18() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1313,10 +1485,10 @@ function playSlide18() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide18()");
 }
 
 function playSlide19() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1368,10 +1540,10 @@ function playSlide19() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide19()");
 }
 
 function playSlide20() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1423,10 +1595,10 @@ function playSlide20() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide20()");
 }
 
 function playSlide21() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1478,10 +1650,10 @@ function playSlide21() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide21()");
 }
 
 function playSlide22() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1533,10 +1705,10 @@ function playSlide22() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide22()");
 }
 
 function playSlide23() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1588,10 +1760,10 @@ function playSlide23() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide23()");
 }
 
 function playSlide24() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1643,10 +1815,10 @@ function playSlide24() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide24()");
 }
 
 function playSlide25() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1698,10 +1870,10 @@ function playSlide25() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide25()");
 }
 
 function playSlide26() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1753,10 +1925,10 @@ function playSlide26() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide26()");
 }
 
 function playSlide27() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1808,10 +1980,10 @@ function playSlide27() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide27()");
 }
 
 function playSlide28() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1863,10 +2035,10 @@ function playSlide28() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide28()");
 }
 
 function playSlide29() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1918,10 +2090,10 @@ function playSlide29() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide29()");
 }
 
 function playSlide30() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -1973,10 +2145,10 @@ function playSlide30() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide30()");
 }
 
 function playSlide31() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2028,10 +2200,10 @@ function playSlide31() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide31()");
 }
 
 function playSlide32() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2083,10 +2255,10 @@ function playSlide32() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide32()");
 }
 
 function playSlide33() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2138,10 +2310,10 @@ function playSlide33() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide33()");
 }
 
 function playSlide34() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2193,10 +2365,10 @@ function playSlide34() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide34()");
 }
 
 function playSlide35() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2248,10 +2420,10 @@ function playSlide35() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide35()");
 }
 
 function playSlide36() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2303,10 +2475,10 @@ function playSlide36() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide36()");
 }
 
 function playSlide37() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2358,10 +2530,10 @@ function playSlide37() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide37()");
 }
 
 function playSlide38() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2413,10 +2585,10 @@ function playSlide38() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide38()");
 }
 
 function playSlide39() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2468,10 +2640,10 @@ function playSlide39() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide39()");
 }
 
 function playSlide40() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2523,15 +2695,423 @@ function playSlide40() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide40()");
 }
 
 function playSlide41() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+        <button id="btn" class="text-btn style2 no-tooltip" data-toggle="modal" data-target="#modal" onclick="playSlide41a()"> Observe Changed<br />  Behavior</button>
+        <button class="text-btn style2 no-tooltip" > Approach Her </button>
+        <button class="text-btn style2 no-tooltip" > Be Non-Judgemental</button>
+        <button class="text-btn style2 no-tooltip" > Respect Her Choices</button>
+    </div>
+
+
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
                     onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
                     <source src="./assets/videos/s41.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+    localStorage.setItem("slide", "playSlide41()");
+}
+
+function playSlide41a() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+        <button class="text-btn style2 no-tooltip visited" > Observe Changed<br />  Behavior</button>
+        <button id="btn" class="text-btn style2 no-tooltip" data-toggle="modal" data-target="#modal" onclick="playSlide41b()"> Approach Her </button>
+        <button class="text-btn style2 no-tooltip" > Be Non-Judgemental</button>
+        <button class="text-btn style2 no-tooltip" > Respect Her Choices</button>
+    </div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Observe Changed Behavior</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-para"> You may observe signs thata you, your friend or classmate is in an abusive relationship such as: </p>
+                            <ul class="list-simple">
+                                <li>
+                                She cancels plans with friends more often than before.
+                                </li>
+                                <li>
+                                She gives up things that are important to her, including friends, family, hobbies, etc.
+                                </li>
+                                <li>
+                                She becomes isolated from family and friends.
+                                </li>
+                                <li>
+                                She worries about making the partner angry.
+                                </li>
+                                <li>
+                                She shows signs of physical abuse like bruises or cuts.
+                                </li>
+                                <li>
+                                She feels embarrassed or ashamed about what's going on in their relationship.
+                                </li>
+                                <li>
+                                She consistently makes execuses for their partner's behavior.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s41a.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide41b() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+        <button class="text-btn style2  no-tooltip visited" > Observe Changed<br />  Behavior</button>
+        <button class="text-btn style2  no-tooltip visited"> Approach Her </button>
+        <button id="btn" class="text-btn style2  no-tooltip" data-toggle="modal" data-target="#modal" onclick="playSlide41c()" > Be Non-Judgemental</button>
+        <button class="text-btn style2  no-tooltip" > Respect Her Choices</button>
+    </div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Approach Her</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-simple">
+                                <li>
+                                Make sure to talk to the woman when she is alone.
+                                </li>
+                                <li>
+                                Tell her that you are worried about her and that what is happening is not her fault.
+                                </li>
+                                <li>
+                                Understand that a victim may not open up when first approached with an offer to help, but they do remember you offered.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s41b.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide41c() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+        <button class="text-btn style2 no-tooltip visited" > Observe Changed<br />  Behavior</button>
+        <button class="text-btn style2 no-tooltip visited"> Approach Her </button>
+        <button class="text-btn style2 no-tooltip visited" > Be Non-Judgemental</button>
+        <button id="btn" class="text-btn style2 no-tooltip" data-toggle="modal" data-target="#modal" onclick="playSlide41d()" > Respect Her Choices</button>
+    </div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Be Non-Judgmental</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-simple">
+                                <li>
+                                Reinforce that the abuse is not her fault.
+                                </li>
+                                <li>
+                                Tell her that abuse is the partner's problem and responsibility, but refrain from "bad-mouthing" him.
+                                </li>
+                                <li>
+                                Don't tell her that the abuser is a jerk, that you never liked him, etc. That can also make her feel guilty for talking bad about her partner.
+                                </li>
+                                <li>
+                                Focus on the partner's negative behavior in your comments and not on your negative opinion of the partner's personality.
+                                </li>
+                                <li>
+                                If you are concerned about her safety, express your concern without judgment by simple saying, "The situation sounds dangerous and I'm concened about your safety.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s41c.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide41d() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+        <button class="text-btn style2 no-tooltip visited" > Observe Changed<br />  Behavior</button>
+        <button class="text-btn style2 no-tooltip visited"> Approach Her </button>
+        <button class="text-btn style2 no-tooltip visited" > Be Non-Judgemental</button>
+        <button id="btn" class="text-btn style2 no-tooltip visited" data-toggle="modal" data-target="#modal"> Respect Her Choices</button>
+    </div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Respect Her Choices</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-simple">
+                                <li>
+                                Remember that there are risks atteched every decision an abuse victim makes.
+                                </li>
+                                <li>
+                                If youn truly want to be helpful, be patient and respectful of a person's decisions, even if you don't agree with them.
+                                </li>
+                                <li>
+                                Avoid telling her that she needs to leave. She already knows that she needs to leave but there may be many reasons why she feels she can not leave him including financial reasons, shared custody of children and cultural factors.
+                                </li>
+                                <li>
+                                Validate her feelings. It is common for victims to have conflicting feelings-love and fear, guilt and anger, hope and despair.Let them know that their feelings are normal and reasonable.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s41d.mp4" type="video/mp4"></source>
                 </video>
             <div class="video-controls-main">
                 <div class="video-controls " id="video-controls">
@@ -2581,8 +3161,16 @@ function playSlide41() {
 }
 
 function playSlide42() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
+
+
+    <div class="text-btn-main">
+    <button id="btn" class="text-btn no-tooltip" data-toggle="modal" data-target="#modal" onclick="playSlide42a()"> Approaching the<br />  Abuser</button>
+    <button class="text-btn no-tooltip" > Assess for Safety </button>
+    <button class="text-btn no-tooltip" > Personal Safety First</button>
+</div>
+
+
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
                     onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
@@ -2626,6 +3214,256 @@ function playSlide42() {
                             </div>
 
                             <button class="next-prev-btns prev no-tooltip" onclick="playSlide41();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide43();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+    localStorage.setItem("slide", "playSlide42()");
+}
+
+function playSlide42a() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+    <button class="text-btn no-tooltip visited"> Approaching the<br />  Abuser</button>
+    <button id="btn" class="text-btn no-tooltip"  data-toggle="modal" data-target="#modal" onclick="playSlide42b()" > Assess for Safety </button>
+    <button class="text-btn no-tooltip" > Personal Safety First</button>
+</div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Approaching the Abuser</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-para">Do not approach the abuser unless you have a special relationship with him. It may not only put you in a dangerous situation but also increase the harm to his partner if he thinks she has been telling others about his abusive behaviour. </p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s42a.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide42b() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+    <button class="text-btn no-tooltip visited"> Approaching the<br />  Abuser</button>
+    <button class="text-btn no-tooltip visited" > Assess for Safety </button>
+    <button id="btn" class="text-btn no-tooltip"  data-toggle="modal" data-target="#modal" onclick="playSlide42c()" > Personal Safety First</button>
+</div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Assess for Safety</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-para">Assess for safety if you see someone on trouble by asking youself if you can help safely. It might be better to intervene as a group rather than on your own. Be polite and remain calm. Don't aggravate the situation by confronting the abuser.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s42b.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
+                            <!-- <button class="next-prev-btns next no-tooltip" onclick="playSlide42();">Next</button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function playSlide42c() {
+    videoContainer.innerHTML = `
+
+    <div class="text-btn-main">
+    <button class="text-btn no-tooltip visited"> Approaching the<br />  Abuser</button>
+    <button class="text-btn no-tooltip visited" > Assess for Safety </button>
+    <button id="btn" class="text-btn no-tooltip visited"  data-toggle="modal" data-target="#modal" > Personal Safety First</button>
+</div>
+
+
+    <div class="modal-wrapper-main">
+        <div class="modal-wrapper">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Personal Safety First</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-para">Remember, your personal safety is a priority -never put yourself at risk, If there is the threat of violence or you are outnumbered just walk away. Report it when it's safe to do so -it's never too late to act.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <video class="video" id="video" preload="metadata" autoplay
+                    onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
+                    onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
+                    <source src="./assets/videos/s42c.mp4" type="video/mp4"></source>
+                </video>
+            <div class="video-controls-main">
+                <div class="video-controls " id="video-controls">
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button data-title="Play" id="play" class="white-icon play-button" onclick="togglePlay()">
+                                <svg class="playback-icons">
+                                    <use id="myPlayBtn" href="#play-icon"></use>
+                                    <use id="myPauseBtn" class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+
+                            <div class="video-progress">
+                                <progress id="progress-bar" value="0" min="0"></progress>
+                                <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmousemove="updateSeekTooltip(event)" oninput="skipAhead(event)">
+                            </div>
+                            <button data-title="Replay" id="replay" class="white-icon replay-icon" onclick="rePlay()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                </svg>
+                                
+                            </button>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="volume-controls">
+                                <button data-title="Mute" class="volume-button" id="volume-button" onclick="toggleMute()">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01" oninput="updateVolume()">
+                            </div>
+
+                            <button class="next-prev-btns prev no-tooltip" onclick="playSlide40();">Prev</button>
                             <button class="next-prev-btns next no-tooltip" onclick="playSlide43();">Next</button>
 
                         </div>
@@ -2636,7 +3474,6 @@ function playSlide42() {
 }
 
 function playSlide43() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2688,10 +3525,10 @@ function playSlide43() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide43()");
 }
 
 function playSlide44() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2743,10 +3580,10 @@ function playSlide44() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide44()");
 }
 
 function playSlide45() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2798,10 +3635,10 @@ function playSlide45() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide45()");
 }
 
 function playSlide46() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2853,10 +3690,10 @@ function playSlide46() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide46()");
 }
 
 function playSlide47() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2908,10 +3745,10 @@ function playSlide47() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide47()");
 }
 
 function playSlide48() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -2963,10 +3800,10 @@ function playSlide48() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide48()");
 }
 
 function playSlide49() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3018,10 +3855,10 @@ function playSlide49() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide49()");
 }
 
 function playSlide50() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3073,16 +3910,47 @@ function playSlide50() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide50()");
 }
 
 function playSlide51() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
                     onpause="updatePlayButton()" ontimeupdate="updateProgress();" onvolumechange="updateVolumeIcon()">
                     <source src="./assets/videos/s51.mp4" type="video/mp4"></source>
+                    <a href="#"> <img src="icons8-pdf-50.png" height = 80px/> </a>
                 </video>
+
+                <div class="pdf-wrapper-top">
+                <div class="pdf-wrapper">
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_English_FV.pdf?alt=media&token=f1e64aa0-6431-43e5-9ed2-880c10c5ec81" target="_blank""><img src="Checklist PDF Logo/NFF 2022 Handout Checklist_English_FV.png"  /> </a></div>
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_French_FV.pdf?alt=media&token=37385635-a5d1-4a2c-9c0a-b62a234e8cf6"" target="_blank"><img src="Checklist PDF Logo/NFF 2022 Handout Checklist_French_FV.png" /> </a></div>
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_Hindi_FV.pdf?alt=media&token=c5eea240-06fe-4cc7-b047-58218c78aecb"" target="_blank"><img src="Checklist PDF Logo/NFF 2022 Handout Checklist_Hindi_FV.png" /> </a></div>
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_Korean_FV.pdf?alt=media&token=5c770a91-f9df-489d-9c54-0b74b4bfebb9"" target="_blank"><img src="Checklist PDF Logo/NFF 2022 Handout Checklist_Korean_FV.png" /> </a></div>
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_Chinese_FV.pdf?alt=media&token=5b39190e-d194-4857-9930-823b94cdf1c3"" target="_blank"> <img src="Checklist PDF Logo/NFF 2022 Handout Checklist_Chinese_FV.png" /> </a></div>
+               <div class="pdf-link"> <a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Chechlist%2FNFF%202022_Handout%20-%20Checklist_Vietnamese_FV.pdf?alt=media&token=a9bdae32-b562-4301-b2b3-bde5b33074da"" target="_blank"><img src="Checklist PDF Logo/NFF 2022_Handout Checklist_Vietnamese_FV_00102.png" /> </a></div>
+                </div>
+                </div>
+
+                <div class="pdf-wrapper-top bottom">
+                <div class="pdf-wrapper">
+            
+                 <div class="pdf-link"><a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Recognizing%20Abuse%2F1.%20Recognizing%20Abuse_French_FV.pdf?alt=media&token=ea25b95f-0516-4978-99ec-32c50bf31db5"" target="_blank"><img src="Recongnizing Abuse/Recognizing Abuse_French_FV_00231.png" /> </a></div>
+                 <div class="pdf-link"><a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Recognizing%20Abuse%2F5.%20Recognizing%20Abuse_Hindi_FV.pdf?alt=media&token=efbca883-259d-4b63-937a-f70de58c2566"" target="_blank"><img src="Recongnizing Abuse/Recognizing Abuse_Hindi_FV_00231.png" /> </a></div>
+                 <div class="pdf-link"><a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Recognizing%20Abuse%2F3.%20Recognizing%20Abuse_Korean_FV.pdf?alt=media&token=9a11e4c1-17c2-4f89-b280-eb16fc87c13e"" target="_blank"><img src="Recongnizing Abuse/Recognizing Abuse_Korean_FV_00231.png" /> </a></div>
+                 <div class="pdf-link"><a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Recognizing%20Abuse%2F2.%20Recognizing%20Abuse_Chinese_FV.pdf?alt=media&token=6c220cb4-c8d8-46a0-ab09-102e52c10cc3"" target="_blank"><img src="Recongnizing Abuse/Recognizing Abuse_Chinese_FV_00231.png" /> </a></div>
+                 <div class="pdf-link"><a href="https://firebasestorage.googleapis.com/v0/b/e-module-pdfs.appspot.com/o/Recognizing%20Abuse%2F4.%20Recognizing%20Abuse_Vietnamese_FV.pdf?alt=media&token=4ab2942f-77bd-40f3-899b-93ae9cfac6ad"" target="_blank"><img src="Recongnizing Abuse/Recognizing Abuse_Vietnamese_FV_00231.png" /> </a></div>
+
+                </div>
+                </div>                
+
+   
+
+
+
+
+                
             <div class="video-controls-main">
                 <div class="video-controls " id="video-controls">
                     <div class="bottom-controls">
@@ -3128,10 +3996,10 @@ function playSlide51() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide51()");
 }
 
 function playSlide52() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3183,10 +4051,10 @@ function playSlide52() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide52()");
 }
 
 function playSlide53() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3238,10 +4106,10 @@ function playSlide53() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide53()");
 }
 
 function playSlide54() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3293,10 +4161,10 @@ function playSlide54() {
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide54()");
 }
 
 function playSlide55() {
-    // console.log('Slide 6')
     videoContainer.innerHTML = `
                 <video class="video" id="video" preload="metadata" autoplay
                     onloadedmetadata="initializeVideo()" onplay="updatePlayButton()" 
@@ -3341,13 +4209,14 @@ function playSlide55() {
                             </div>
 
                             <button class="next-prev-btns prev no-tooltip" onclick="playSlide54();">Prev</button>
-                            <button class="next-prev-btns next no-tooltip">Next</button>
+                            <button class="next-prev-btns next no-tooltip" onclick="playSlide1();">Restart</button>
 
                         </div>
                     </div>
                 </div>
             </div>
     `
+    localStorage.setItem("slide", "playSlide55()");
 }
 
 /*---------- Video Player Functions ----------*/
@@ -3407,8 +4276,8 @@ function updateProgress() {
     const video = document.getElementById('video');
     const progressBar = document.getElementById('progress-bar');
 
-    seek.value = Math.floor(video.currentTime);
-    progressBar.value = Math.floor(video.currentTime);
+    seek.value = Math.ceil(video.currentTime);
+    progressBar.value = Math.ceil(video.currentTime);
 }
 
 function updateSeekTooltip(event) {

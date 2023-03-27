@@ -1,0 +1,66 @@
+.pdf-wrapper-top {
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    top: 35%;
+}
+
+.pdf-wrapper-top.bottom {
+    top: 60%;
+}
+
+
+.pdf-wrapper {
+    width: 73.5%;
+    padding: 10px 10px;
+    transition: all 0.2s ease;
+    margin-left: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pdf-link {
+    width: 66px;
+}
+
+.pdf-link a {
+    display: block;
+}
+
+.pdf-link a img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .pdf-wrapper-top {
+        top: 32%;
+    }
+    .pdf-wrapper {
+        gap: 0;
+    }
+
+    .pdf-link {
+        width: 40px;
+    }
+    .pdf-wrapper-top.bottom {
+        top: 60%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .pdf-wrapper-top {
+        top: 27%;
+    }
+    .pdf-wrapper {
+        gap: 0;
+    }
+
+    .pdf-link {
+        width: 34px;
+    }
+    .pdf-wrapper-top.bottom {
+        top: 55%;
+    }
+}
