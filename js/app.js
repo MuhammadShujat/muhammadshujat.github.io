@@ -2785,7 +2785,7 @@ function playSlide41a() {
                         </button>
                         </div>
                         <div class="modal-body">
-                            <p class="modal-para"> You may observe signs thata you, your friend or classmate is in an abusive relationship such as: </p>
+                            <p class="modal-para"> You may observe signs that you, your friend or classmate is in an abusive relationship such as: </p>
                             <ul class="list-simple">
                                 <li>
                                 She cancels plans with friends more often than before.
@@ -3091,7 +3091,7 @@ function playSlide41d() {
                                 Remember that there are risks atteched every decision an abuse victim makes.
                                 </li>
                                 <li>
-                                If youn truly want to be helpful, be patient and respectful of a person's decisions, even if you don't agree with them.
+                                If you truly want to be helpful, be patient and respectful of a person's decisions, even if you don't agree with them.
                                 </li>
                                 <li>
                                 Avoid telling her that she needs to leave. She already knows that she needs to leave but there may be many reasons why she feels she can not leave him including financial reasons, shared custody of children and cultural factors.
@@ -3329,7 +3329,7 @@ function playSlide42b() {
                         </button>
                         </div>
                         <div class="modal-body">
-                            <p class="modal-para">Assess for safety if you see someone on trouble by asking youself if you can help safely. It might be better to intervene as a group rather than on your own. Be polite and remain calm. Don't aggravate the situation by confronting the abuser.</p> 
+                            <p class="modal-para">Assess for safety if you see someone on trouble by asking yourself if you can help safely. It might be better to intervene as a group rather than on your own. Be polite and remain calm. Don't aggravate the situation by confronting the abuser.</p> 
                         </div>
                     </div>
                 </div>
