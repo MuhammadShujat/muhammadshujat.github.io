@@ -1000,7 +1000,7 @@ function playSlide14a() {
                         <div class="modal-body">
                             <ul class="list-simple">
                                 <li>
-                                    International students may be isolated beacause of a lack of friends and family in Canada.
+                                    International students may be isolated because of a lack of friends and family in Canada.
                                 </li>
                                 <li>
                                     They may have to navigate an unfamiliar or new culture of dating, may lack knowledge of Canadian laws and be unaware of resources available to them.
@@ -2806,7 +2806,7 @@ function playSlide41a() {
                                 She feels embarrassed or ashamed about what's going on in their relationship.
                                 </li>
                                 <li>
-                                She consistently makes execuses for their partner's behavior.
+                                She consistently makes excuses for their partner's behavior.
                                 </li>
                             </ul>
                         </div>
@@ -3000,7 +3000,7 @@ function playSlide41c() {
                                 Focus on the partner's negative behavior in your comments and not on your negative opinion of the partner's personality.
                                 </li>
                                 <li>
-                                If you are concerned about her safety, express your concern without judgment by simple saying, "The situation sounds dangerous and I'm concened about your safety.
+                                If you are concerned about her safety, express your concern without judgment by simple saying, "The situation sounds dangerous and I'm concerned about your safety.
                                 </li>
                             </ul>
                         </div>
@@ -3094,10 +3094,10 @@ function playSlide41d() {
                                 If you truly want to be helpful, be patient and respectful of a person's decisions, even if you don't agree with them.
                                 </li>
                                 <li>
-                                Avoid telling her that she needs to leave. She already knows that she needs to leave but there may be many reasons why she feels she can not leave him including financial reasons, shared custody of children and cultural factors.
+                                Avoid telling her that she needs to leave. She already knows that she needs to leave but there may be many reasons why she feels she cannot leave him including financial reasons, shared custody of children and cultural factors.
                                 </li>
                                 <li>
-                                Validate her feelings. It is common for victims to have conflicting feelings-love and fear, guilt and anger, hope and despair.Let them know that their feelings are normal and reasonable.
+                                Validate her feelings. It is common for victims to have conflicting feelings-love and fear, guilt and anger, hope and despair. Let them know that their feelings are normal and reasonable.
                                 </li>
                             </ul>
                         </div>
@@ -3329,7 +3329,7 @@ function playSlide42b() {
                         </button>
                         </div>
                         <div class="modal-body">
-                            <p class="modal-para">Assess for safety if you see someone on trouble by asking yourself if you can help safely. It might be better to intervene as a group rather than on your own. Be polite and remain calm. Don't aggravate the situation by confronting the abuser.</p> 
+                            <p class="modal-para">Assess for safety if you see someone in trouble by asking yourself if you can help safely. It might be better to intervene as a group rather than on your own. Be polite and remain calm. Don't aggravate the situation by confronting the abuser.</p> 
                         </div>
                     </div>
                 </div>
