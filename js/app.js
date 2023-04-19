@@ -3088,7 +3088,7 @@ function playSlide41d() {
                         <div class="modal-body">
                             <ul class="list-simple">
                                 <li>
-                                Remember that there are risks atteched every decision an abuse victim makes.
+                                Remember that there are risks attached every decision an abuse victim makes.
                                 </li>
                                 <li>
                                 If you truly want to be helpful, be patient and respectful of a person's decisions, even if you don't agree with them.
